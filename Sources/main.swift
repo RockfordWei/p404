@@ -39,6 +39,7 @@ struct Filter404: HTTPResponseFilter {
       }
       response.setBody(string: html)
       response.setHeader(.contentLength, value: "\(response.bodyBytes.count)")
+      response.setHeader(.contentType, value: "text/html")
       callback(.done)
     } else {
       callback(.continue)
